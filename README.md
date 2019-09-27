@@ -19,4 +19,20 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Initial setup up for gh-pages worktree branch
+
+```
+
+Checkout
+
+$ git checkout --orphan gh-pages
+$ git reset --hard
+$ git commit --allow-empty -m "Init"
+$ git checkout master
+
+Make your worktree to your deploy folder
+
+$ rm -rf _site
+$ git worktree add _site gh-pages
+
+```
