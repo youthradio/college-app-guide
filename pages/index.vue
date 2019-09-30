@@ -45,7 +45,7 @@
           </div>
 
           <div class="centertext">
-            <strong>Academic Rigor</strong>
+            <strong class="thirdquestion">Academic Rigor</strong>
             <div>
               I knew from the beginning that I wanted to go an academically rigorous school where I would be challenged socially, intellectually, and otherwise.
               In high school, I tried my best to participate in a range of activities and challenge myself academically by taking AP or honors classes that interested me.
@@ -65,7 +65,7 @@
           </div>
 
           <div class="centertext">
-            <strong>College Application Support</strong>
+            <strong class="fourthquestion">College Application Support</strong>
             <div>
               In my school, there was one college counselor, so I didn’t get that much one-on-one time to discuss my application and ended up doing a lot of my own research.
               I was able to learn a lot about different scholarships and programs offered at colleges I was interested in — but it took a lot of self-directed work.
@@ -88,7 +88,7 @@
           </div>
 
           <div class="centertext">
-            <strong>Cost</strong>
+            <strong class="fifthquestion">Cost</strong>
             <div>
               When considering which school I wanted to go to, cost was one of my biggest worries.
               I had to think about my sister, who is two years older and attends an expensive private school.
@@ -112,7 +112,7 @@
           </div>
 
           <div class="centertext">
-            <strong>Campus Size</strong>
+            <strong class="sixthquestion">Campus Size</strong>
             <div>
               I always knew that I didn’t want to go to a small college.
               I gravitated towards medium-sized or larger schools, mostly because my high school wasn’t very large and I felt like I knew all my classmates.
@@ -229,6 +229,18 @@ export default {
 // Unique colors for both Subheader and Break question
 .secondquestion{
   background-color: #FFDB5A;
+}
+.thirdquestion{
+  background-color: #F7825D;
+}
+.fourthquestion{
+  background-color: #ED5B5B;
+}
+.fifthquestion{
+  background-color: #3C76CB;
+}
+.sixthquestion{
+  background-color: #3CC2CB;
 }
 
 // Element unique attributes
