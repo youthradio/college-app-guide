@@ -22,7 +22,7 @@
           </div>
 
           <div class="centertext">
-            <strong>Location</strong>
+            <strong class="secondquestion">Location</strong>
             <div>
               When I was looking into different colleges, one important factor was location.
               At first, I wasn’t happy with my decision to stay close to home.
@@ -32,7 +32,7 @@
               I also realized that it will be helpful to see my family on a regular basis and have a support system when I’m feeling overwhelmed.
             </div>
           </div>
-          <div id="secondquestion" role="break-question">
+          <div class="secondquestion break-question">
             <h3 class="questionstyle">
               {{ questionsData[4].headline }}
             </h3>
@@ -45,14 +45,14 @@
           </div>
 
           <div class="centertext">
-            <strong>Academic Rigor</strong>
+            <strong class="thirdquestion">Academic Rigor</strong>
             <div>
               I knew from the beginning that I wanted to go an academically rigorous school where I would be challenged socially, intellectually, and otherwise.
               In high school, I tried my best to participate in a range of activities and challenge myself academically by taking AP or honors classes that interested me.
               I’m really looking forward to taking more writing classes because there weren’t many offered in school. I want to push myself to become better at creative and academic writing in ways that I couldn’t have before.
             </div>
           </div>
-          <div id="thirdquestion" role="break-question">
+          <div class="thirdquestion break-question">
             <h3 class="questionstyle">
               {{ questionsData[1].headline }}
             </h3>
@@ -65,7 +65,7 @@
           </div>
 
           <div class="centertext">
-            <strong>College Application Support</strong>
+            <strong class="fourthquestion">College Application Support</strong>
             <div>
               In my school, there was one college counselor, so I didn’t get that much one-on-one time to discuss my application and ended up doing a lot of my own research.
               I was able to learn a lot about different scholarships and programs offered at colleges I was interested in — but it took a lot of self-directed work.
@@ -75,7 +75,7 @@
             If I had started taking college more seriously when I started high school and asked for guidance and help, my entire college application process would’ve been a lot smoother.
             That said, if you have a short amount of time, there’s still a lot you can do by talking to your counselors, other students and doing your own research.
           </div>
-          <div id="fourthquestion" role="break-question">
+          <div class="fourthquestion break-question">
             <h3 class="questionstyle">
               {{ questionsData[0].headline }}
             </h3>
@@ -88,7 +88,7 @@
           </div>
 
           <div class="centertext">
-            <strong>Cost</strong>
+            <strong class="fifthquestion">Cost</strong>
             <div>
               When considering which school I wanted to go to, cost was one of my biggest worries.
               I had to think about my sister, who is two years older and attends an expensive private school.
@@ -99,7 +99,7 @@
             Because public schools in general are cheaper, and I also got some financial aid, the cost was reduced to a manageable level.
             I’ll be able to graduate from college with minimal-to-no debt and still get a good education.
           </div>
-          <div id="fifthquestion" role="break-question">
+          <div class="fifthquestion break-question">
             <h3 class="questionstyle">
               {{ questionsData[3].headline }}
             </h3>
@@ -112,7 +112,7 @@
           </div>
 
           <div class="centertext">
-            <strong>Campus Size</strong>
+            <strong class="sixthquestion">Campus Size</strong>
             <div>
               I always knew that I didn’t want to go to a small college.
               I gravitated towards medium-sized or larger schools, mostly because my high school wasn’t very large and I felt like I knew all my classmates.
@@ -122,7 +122,7 @@
             Some people feel trapped in small schools, and some people feel lost in large schools.
             I had to understand how I interacted with others and how I would feel in different environments before I decided where I wanted to be.
           </div>
-          <div id="sixthquestion" role="break-question">
+          <div class="sixthquestion break-question">
             <h3 class="questionstyle">
               {{ questionsData[2].headline }}
             </h3>
@@ -226,6 +226,44 @@ export default {
 <style lang="scss" scoped>
 @import "~@/css/vars";
 @import "~@/css/base";
+// Unique colors for both Subheader and Break question
+.secondquestion{
+  background-color: #FFDB5A;
+}
+.thirdquestion{
+  background-color: #F7825D;
+}
+.fourthquestion{
+  background-color: #ED5B5B;
+}
+.fifthquestion{
+  background-color: #3C76CB;
+}
+.sixthquestion{
+  background-color: #3CC2CB;
+}
+
+// Element unique attributes
+strong {
+  display: inline-block;
+  color: black;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-left: -1rem;
+  margin-bottom: 1rem;
+}
+
+.break-question {
+  border-radius: 1rem;
+  padding: 1rem 5rem 1rem 5rem;
+  display: block;
+}
+
+.break-question label{
+  display: block;
+}
+.questionstyle{
+  font-size: 1rem;
+}
 
 .back-chapter-0.visible{
   // background-color: #131313 ;
@@ -248,6 +286,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .quotes-container {
   position: relative;
   display: flex;
@@ -316,6 +355,9 @@ h2,h3 {
   flex-direction:column;
   // justify-content: space-between;
   min-height: calc(100vh - 68px);
+}
+.centertext{
+  padding: 1rem 0 1rem 0;
 }
 .end{
   min-height: 100vh;
