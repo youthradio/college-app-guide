@@ -22,7 +22,7 @@
           </div>
 
           <div class="centertext">
-            <strong class="secondquestion">Location</strong>
+            <strong class="question-0">Location</strong>
             <div>
               When I was looking into different colleges, one important factor was location.
               At first, I wasn’t happy with my decision to stay close to home.
@@ -32,40 +32,19 @@
               I also realized that it will be helpful to see my family on a regular basis and have a support system when I’m feeling overwhelmed.
             </div>
           </div>
-          <div class="secondquestion break-question">
-            <h3 class="questionstyle">
-              {{ questionsData[4].headline }}
-            </h3>
-            <p class="pre-input">
-              <label v-for="option in questionsData[4].options" :key="option">
-                <input v-model="answeredQuestions[4]" :name="questionsData[4].topic" type="radio" :value="option">
-                <span>{{ option.option }}</span>
-              </label>
-            </p>
-          </div>
-
+          <QuestionBreak :id="0" v-model="answeredQuestions[0]" :question-data="questionsData[4]" />
           <div class="centertext">
-            <strong class="thirdquestion">Academic Rigor</strong>
+            <strong class="question-1">Academic Rigor</strong>
             <div>
               I knew from the beginning that I wanted to go an academically rigorous school where I would be challenged socially, intellectually, and otherwise.
               In high school, I tried my best to participate in a range of activities and challenge myself academically by taking AP or honors classes that interested me.
               I’m really looking forward to taking more writing classes because there weren’t many offered in school. I want to push myself to become better at creative and academic writing in ways that I couldn’t have before.
             </div>
           </div>
-          <div class="thirdquestion break-question">
-            <h3 class="questionstyle">
-              {{ questionsData[1].headline }}
-            </h3>
-            <p class="pre-input">
-              <label v-for="option in questionsData[1].options" :key="option">
-                <input v-model="answeredQuestions[1]" :name="questionsData[1].topic" type="radio" :value="option">
-                <span>{{ option.option }}</span>
-              </label>
-            </p>
-          </div>
+          <QuestionBreak :id="1" v-model="answeredQuestions[1]" :question-data="questionsData[1]" />
 
           <div class="centertext">
-            <strong class="fourthquestion">College Application Support</strong>
+            <strong class="question-2">College Application Support</strong>
             <div>
               In my school, there was one college counselor, so I didn’t get that much one-on-one time to discuss my application and ended up doing a lot of my own research.
               I was able to learn a lot about different scholarships and programs offered at colleges I was interested in — but it took a lot of self-directed work.
@@ -75,20 +54,9 @@
             If I had started taking college more seriously when I started high school and asked for guidance and help, my entire college application process would’ve been a lot smoother.
             That said, if you have a short amount of time, there’s still a lot you can do by talking to your counselors, other students and doing your own research.
           </div>
-          <div class="fourthquestion break-question">
-            <h3 class="questionstyle">
-              {{ questionsData[0].headline }}
-            </h3>
-            <p class="pre-input">
-              <label v-for="option in questionsData[0].options" :key="option">
-                <input v-model="answeredQuestions[0]" :name="questionsData[0].topic" type="radio" :value="option">
-                <span>{{ option.option }}</span>
-              </label>
-            </p>
-          </div>
-
+          <QuestionBreak :id="2" v-model="answeredQuestions[2]" :question-data="questionsData[0]" />
           <div class="centertext">
-            <strong class="fifthquestion">Cost</strong>
+            <strong class="question-3">Cost</strong>
             <div>
               When considering which school I wanted to go to, cost was one of my biggest worries.
               I had to think about my sister, who is two years older and attends an expensive private school.
@@ -99,20 +67,10 @@
             Because public schools in general are cheaper, and I also got some financial aid, the cost was reduced to a manageable level.
             I’ll be able to graduate from college with minimal-to-no debt and still get a good education.
           </div>
-          <div class="fifthquestion break-question">
-            <h3 class="questionstyle">
-              {{ questionsData[3].headline }}
-            </h3>
-            <p class="pre-input">
-              <label v-for="option in questionsData[3].options" :key="option">
-                <input v-model="answeredQuestions[3]" :name="questionsData[3].topic" type="radio" :value="option">
-                <span>{{ option.option }}</span>
-              </label>
-            </p>
-          </div>
+          <QuestionBreak :id="3" v-model="answeredQuestions[3]" :question-data="questionsData[3]" />
 
           <div class="centertext">
-            <strong class="sixthquestion">Campus Size</strong>
+            <strong class="question-4">Campus Size</strong>
             <div>
               I always knew that I didn’t want to go to a small college.
               I gravitated towards medium-sized or larger schools, mostly because my high school wasn’t very large and I felt like I knew all my classmates.
@@ -122,17 +80,7 @@
             Some people feel trapped in small schools, and some people feel lost in large schools.
             I had to understand how I interacted with others and how I would feel in different environments before I decided where I wanted to be.
           </div>
-          <div class="sixthquestion break-question">
-            <h3 class="questionstyle">
-              {{ questionsData[2].headline }}
-            </h3>
-            <p class="pre-input">
-              <label v-for="option in questionsData[2].options" :key="option">
-                <input v-model="answeredQuestions[2]" :name="questionsData[2].topic" type="radio" :value="option">
-                <span>{{ option.option }}</span>
-              </label>
-            </p>
-          </div>
+          <QuestionBreak :id="4" v-model="answeredQuestions[4]" :question-data="questionsData[2]" />
 
           <div class="centertext">
             Throughout the college application process I had to think about my academic experiences, my personal experiences, and how I’ve grown.
@@ -166,8 +114,13 @@
               </div>
             </div>
           </div>
+          </questionbreak>
         </div>
       </template>
+    </article>
+  </div>
+</template></div>
+</template>
     </article>
   </div>
 </template>
@@ -177,10 +130,12 @@
 import CommonUtils from '../mixins/CommonUtils'
 import ROWS_DATA from '~/data/data.json'
 import MenuHeader from '~/components/MenuHeader.vue'
+import QuestionBreak from '~/components/QuestionBreak.vue'
 
 export default {
   components: {
-    MenuHeader
+    MenuHeader,
+    QuestionBreak
   },
   mixins: [
     CommonUtils
@@ -227,19 +182,19 @@ export default {
 @import "~@/css/vars";
 @import "~@/css/base";
 // Unique colors for both Subheader and Break question
-.secondquestion{
+.question-0{
   background-color: #FFDB5A;
 }
-.thirdquestion{
+.question-1{
   background-color: #F7825D;
 }
-.fourthquestion{
+.question-2{
   background-color: #ED5B5B;
 }
-.fifthquestion{
+.question-3{
   background-color: #3C76CB;
 }
-.sixthquestion{
+.question-4{
   background-color: #3CC2CB;
 }
 
@@ -251,42 +206,6 @@ strong {
   margin-left: -1rem;
   margin-bottom: 1rem;
 }
-
-.break-question {
-  border-radius: 1rem;
-  padding: 1rem 5rem 1rem 5rem;
-  display: block;
-}
-
-.break-question label{
-  display: block;
-}
-.questionstyle{
-  font-size: 1rem;
-}
-
-.back-chapter-0.visible{
-  // background-color: #131313 ;
-  background-image: url('~assets/images/mass-shootings.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-.back-chapter-1.visible {
-  // background-color: #333333;
-    // background-color: #131313 ;
-  background-image: url('~assets/images/police-violence.jpg');
-    background-repeat: no-repeat;
-  background-size: cover;
-
-}
-.back-chapter-2.visible {
-  // background-color: #3F3F3F;
-   background-image: url('~assets/images/community-violence.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .quotes-container {
   position: relative;
   display: flex;
@@ -324,9 +243,6 @@ strong {
   position: relative;
   height: 100vh;
   transition: opacity 0.3s ease-out;
-}
-h2,h3 {
-  text-align: center;
 }
 .sticky_sentinel--top {
   position: absolute;

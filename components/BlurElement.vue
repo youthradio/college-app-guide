@@ -21,15 +21,10 @@
 <script>
 export default {
   props: {
-    element: {
-      type: String,
+    questionData: {
+      type: Object,
       require: true,
       default: null
-    },
-    num: {
-      type: String,
-      require: true,
-      default: ''
     }
   },
   data () {
