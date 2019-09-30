@@ -227,6 +227,16 @@ export default {
 @import "~@/css/vars";
 @import "~@/css/base";
 
+strong {
+  display: inline-block;
+  background-color: blue;
+  color: white;
+
+  padding: 0 1rem 0rem 1rem;
+  margin-left: -1rem;
+
+}
+
 .back-chapter-0.visible{
   // background-color: #131313 ;
   background-image: url('~assets/images/mass-shootings.jpg');
@@ -248,6 +258,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .quotes-container {
   position: relative;
   display: flex;
@@ -316,6 +327,9 @@ h2,h3 {
   flex-direction:column;
   // justify-content: space-between;
   min-height: calc(100vh - 68px);
+}
+.centertext{
+  padding: 7px 0 7px 0;
 }
 .end{
   min-height: 100vh;
