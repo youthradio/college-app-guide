@@ -242,7 +242,7 @@ strong {
 
 .break-question {
   border-radius: 1rem;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 5rem 1rem 5rem;
   display: block;
 }
 
@@ -345,7 +345,7 @@ h2,h3 {
   min-height: calc(100vh - 68px);
 }
 .centertext{
-  padding: 7px 0 7px 0;
+  padding: 1rem 0 1rem 0;
 }
 .end{
   min-height: 100vh;
