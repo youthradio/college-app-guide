@@ -36,3 +36,18 @@ $ rm -rf _site
 $ git worktree add _site gh-pages
 
 ```
+
+## Deploy
+
+```
+First time
+git clone --single-branch --branch gh-pages git@github.com:youthradio/PROJECTNAME.git
+
+Update
+
+git fetch 
+git reset --hard FETCH_HEAD
+git clean -df 
+
+```
+

@@ -32,11 +32,16 @@ export default {
       { name: 'twitter:image', content: SOCIALDATA.featureImage },
       { name: 'twitter:image:alt', content: SOCIALDATA.description },
       { itemprop: 'description', conten: SOCIALDATA.description },
-      { itemprop: 'image', conten: SOCIALDATA.featureImage }
-
+      { itemprop: 'image', conten: SOCIALDATA.featureImage },
+      { name: 'msapplication-TileColor', conten: '#da532c' },
+      { name: 'theme-color', conten: '#ffffff' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'apple-touch-icon', sizes: '180x180', href: 'favicon/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon/favicon-16x16.png' },
+      { rel: 'manifest', href: 'favicon/site.webmanifest' },
+      { rel: 'mask-icon', color: '#5bbad5', href: 'favicon/safari-pinned-tab.svg' },
       { rel: 'stylesheet', href: 'https://yr.media/statics/yr-media-typography/yr-typography.css' }
     ]
   },
