@@ -94,7 +94,7 @@
             </button>
           </div>
 
-          <div class="resultContainer" ref="result">
+          <div ref="result" class="resultContainer">
             <div v-if="showResult == true" class="resultDiv">
               <h1> Here's what you said... </h1>
               <ul>
@@ -114,7 +114,6 @@
               </div>
             </div>
           </div>
-          </questionbreak>
         </div>
       </template>
     </article>
@@ -234,6 +233,7 @@ strong {
   background-color: #1AFFA3;
   text-align: center;
   border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 .quotes-container {
   position: relative;
