@@ -172,7 +172,9 @@ export default {
   },
   computed: {
     resultStatements () {
-      return this.answeredQuestions.map(response => response.response.replace(/\{\{.*\}\}/g, response.option.toLowerCase()))
+      return this.answeredQuestions
+        .filter(r => r !== undefined)
+        .map(response => response.response.replace(/\{\{.*\}\}/g, response.option.toLowerCase()))
     },
     featureImage () {
       return SOCIALDATA.featureImagePath
