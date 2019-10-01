@@ -116,8 +116,8 @@
         </button>
       </div>
 
-      <div ref="result" class="resultContainer">
-        <div v-if="showResult == true">
+      <div v-if="showResult == true" ref="result" class="resultContainer">
+        <div>
           <ul>
             <li v-for="statement in resultStatements" :key="statement" class="resultChild">
               {{ statement }}
