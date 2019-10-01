@@ -83,4 +83,8 @@ h3 {
 main{
   max-width: 30rem;
 }
+input {
+  // position: absolute;
+  // visibility: hidden;
+}
 </style>
