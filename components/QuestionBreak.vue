@@ -31,7 +31,7 @@ export default {
       default: null
     },
     value: {
-      type: Number,
+      type: Object,
       default: null
     }
   },
@@ -82,5 +82,9 @@ h3 {
 }
 main{
   max-width: 30rem;
+}
+input {
+  // position: absolute;
+  // visibility: hidden;
 }
 </style>

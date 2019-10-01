@@ -22,7 +22,7 @@ export default {
       { property: 'og:url', content: SOCIALDATA.url },
       { property: 'og:image', content: SOCIALDATA.featureImage },
       { property: 'og:description', content: SOCIALDATA.description },
-      { property: 'og:image:alt', content: SOCIALDATA.description },
+      { property: 'og:image:alt', content: SOCIALDATA.featureImageDescription },
       { property: 'fb:app_id', content: SOCIALDATA.fbAppID },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:creator', content: SOCIALDATA.twitterHandler },
@@ -30,7 +30,7 @@ export default {
       { name: 'twitter:title', content: SOCIALDATA.title },
       { name: 'twitter:description', content: SOCIALDATA.description },
       { name: 'twitter:image', content: SOCIALDATA.featureImage },
-      { name: 'twitter:image:alt', content: SOCIALDATA.description },
+      { name: 'twitter:image:alt', content: SOCIALDATA.featureImageDescription },
       { itemprop: 'description', conten: SOCIALDATA.description },
       { itemprop: 'image', conten: SOCIALDATA.featureImage },
       { name: 'msapplication-TileColor', conten: '#da532c' },
@@ -81,10 +81,11 @@ export default {
     id: 'UA-6029148-3',
     config: {
       anonymize_ip: true, // anonymize IP
-      send_page_view: false // might be necessary to avoid duplicated page track on page reload
+      page_title: SOCIALDATA.title,
+      page_path: SOCIALDATA.baseURL
     },
     debug: false, // enable to track in dev mode
-    disableAutoPageTrack: false // disable if you don't want to track each page route with router.afterEach(...).
+    disableAutoPageTrack: true // disable if you don't want to track each page route with router.afterEach(...).
   },
 
   /*

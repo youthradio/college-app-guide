@@ -3,7 +3,7 @@
     <header class="main-header">
       <div class="header-container">
         <div>
-          <div class="logo" :style="lastScrollY > 83 ? logoFixed: ''">
+          <div class="logo">
             <a href="https://yr.media">
               <svg xmlns="http://www.w3.org/2000/svg" class="logo-svg" viewBox="0,0,66,66">
                 <defs>
@@ -200,11 +200,18 @@ export default {
   mixins: [
     CommonUtils
   ],
+  props: {
+    offset: {
+      type: Number,
+      required: false,
+      default: 0
+    }
+  },
   data () {
     return {
       activeMenu: false,
       searchContainer: false,
-      hideNavbar: false,
+      hideNavbar: true,
       lastScrollY: 0
     }
   },
@@ -223,12 +230,11 @@ export default {
   },
   methods: {
     onScroll () {
-      // this.hideNavbar = window.scrollY > 83
-      // this.hideNavbar = window.scrollY > this.lastScrollY
+      this.hideNavbar = window.scrollY < this.offset + 83
       this.lastScrollY = window.scrollY
       if (this.activeMenu || this.searchContainer) {
-        this.activeMenu = window.scrollY > 83
-        this.searchContainer = window.scrollY > 83
+        this.activeMenu = window.scrollY < this.offset + 83
+        this.searchContainer = window.scrollY < this.offset + 83
       }
     },
     toggleMenu () {
