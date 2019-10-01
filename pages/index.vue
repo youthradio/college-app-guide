@@ -129,7 +129,7 @@
           </p>
 
           <div class="buttonArray">
-            <button @click="printPage">
+            <button class="printButton" @click="printPage">
               Print
             </button>
           </div>
@@ -274,6 +274,28 @@ export default {
    border-radius: 1rem;
    box-shadow: 0px 0px 6px black;
  }
+.printButton{
+   transition: 0.3s;
+   font-weight: 600;
+   font-size: 1rem;
+   background-color: #90E0C3;
+   padding: 1rem;
+   border: 2px solid #90E0C3;
+   border-radius: 1rem;
+   margin-bottom: -1rem;
+   z-index: 1;
+ }
+.printButton:hover{
+   transition: 0.3s;
+   font-weight: 600;
+   font-size: 1rem;
+   background-color: #90E0C3;
+   padding: 1rem;
+   border: 2px solid grey;
+   border-radius: 1rem;
+   box-shadow: 0px 0px 6px black;
+ }
+
 .resultContainer{
    background-color: #1AFFA3;
    border-radius: 1rem;
