@@ -79,6 +79,8 @@ export default {
   border-radius: 1rem;
   padding: 1rem;
   display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .break-question label{
   display: block;
@@ -88,7 +90,6 @@ export default {
   font-size: 1rem;
 }
 h3 {
-  text-align: center;
   font-weight: 900;
 }
 main{
