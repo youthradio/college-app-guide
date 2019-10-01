@@ -1,7 +1,21 @@
 <template>
   <div class="container">
-    <MenuHeader />
+    <header ref="headerImage">
+      <img
+        :srcset="`${featureImage}x375.jpg 375w,
+        ${featureImage}x563.jpg 563w,
+        ${featureImage}x1125.jpg 1125w,
+        ${featureImage}x1500.jpg 1500w,
+        ${featureImage}x1875.jpg 1875w,
+        `"
+        :src="`${featureImage}x1875.jpg`"
+        alt="Elva dressed as a fairy"
 
+        class="img-fluid"
+        @load="updateHeaderHeight"
+      >
+    </header>
+    <MenuHeader :offset="headerImageHeight" />
     <article>
       <template>
         <div class="questions">
@@ -128,6 +142,7 @@
 <script>
 
 import CommonUtils from '../mixins/CommonUtils'
+import SOCIALDATA from '../social.config'
 import ROWS_DATA from '~/data/data.json'
 import MenuHeader from '~/components/MenuHeader.vue'
 import QuestionBreak from '~/components/QuestionBreak.vue'
@@ -144,12 +159,16 @@ export default {
     return {
       isReadyToResult: false,
       showResult: false,
-      answeredQuestions: []
+      answeredQuestions: [],
+      headerImageHeight: 0
     }
   },
   computed: {
     resultStatements () {
       return this.answeredQuestions.map(response => response.response.replace(/\{\{.*\}\}/g, response.option.toLowerCase()))
+    },
+    featureImage () {
+      return SOCIALDATA.featureImagePath
     }
   },
   watch: {
@@ -166,6 +185,9 @@ export default {
   mounted () {
   },
   methods: {
+    updateHeaderHeight () {
+      this.headerImageHeight = this.$refs.headerImage.getBoundingClientRect().height
+    },
     processResult () {
       this.showResult = true
       // nextTick() waits for the next update cycle, very useful for focusing on new DOM objects.
@@ -197,7 +219,11 @@ export default {
 .question-4{
   background-color: #3CC2CB;
 }
-
+.img-fluid{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
 // Element unique attributes
 strong {
   display: inline-block;
