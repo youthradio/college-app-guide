@@ -301,7 +301,7 @@ export default {
    border-radius: 1rem;
    padding: 2rem;
    width: 100%;
-   text-align: center;
+   text-align: left;
  }
 .resultChild{
   list-style-type: circle;
