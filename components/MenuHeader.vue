@@ -230,7 +230,6 @@ export default {
   },
   methods: {
     onScroll () {
-      console.log(window.scrollY, this.offset)
       this.hideNavbar = window.scrollY < this.offset + 83
       this.lastScrollY = window.scrollY
       if (this.activeMenu || this.searchContainer) {
