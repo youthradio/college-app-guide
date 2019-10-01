@@ -116,10 +116,10 @@
         </button>
       </div>
 
-      <div ref="result">
-        <div v-if="showResult == true" class="resultDiv">
+      <div v-if="showResult == true" ref="result" class="resultContainer">
+        <div>
           <ul>
-            <li v-for="statement in resultStatements" :key="statement">
+            <li v-for="statement in resultStatements" :key="statement" class="resultChild">
               {{ statement }}
             </li>
           </ul>
@@ -129,7 +129,7 @@
           </p>
 
           <div class="buttonArray">
-            <button @click="printPage">
+            <button class="printButton" @click="printPage">
               Print
             </button>
           </div>
@@ -248,6 +248,65 @@ export default {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+.buttonContainer{
+   width: 100%;
+   text-align: center;
+ }
+.result-button{
+   transition: 0.3s;
+   font-weight: 600;
+   font-size: 1rem;
+   background-color: #3CCB98;
+   padding: 1rem;
+   border: 2px solid #3CCB98;
+   border-radius: 1rem;
+   margin-bottom: -1rem;
+   z-index: 1;
+ }
+.result-button:hover{
+   transition: 0.3s;
+   font-weight: 600;
+   font-size: 1rem;
+   background-color: #3CCB98;
+   padding: 1rem;
+   border: 2px solid grey;
+   border-radius: 1rem;
+   box-shadow: 0px 0px 6px black;
+ }
+.printButton{
+   transition: 0.3s;
+   font-weight: 600;
+   font-size: 1rem;
+   background-color: #90E0C3;
+   padding: 1rem;
+   border: 2px solid #90E0C3;
+   border-radius: 1rem;
+   margin-bottom: -1rem;
+   z-index: 1;
+ }
+.printButton:hover{
+   transition: 0.3s;
+   font-weight: 600;
+   font-size: 1rem;
+   background-color: #90E0C3;
+   padding: 1rem;
+   border: 2px solid grey;
+   border-radius: 1rem;
+   box-shadow: 0px 0px 6px black;
+ }
+
+.resultContainer{
+   background-color: #1AFFA3;
+   border-radius: 1rem;
+   padding: 1rem 4rem 2rem 4rem;
+   width: 100%;
+   text-align: left;
+ }
+.resultChild{
+  list-style-type: circle;
+  list-style-position: inside;
+
 }
 // Element unique attributes
 .quotes-container {
