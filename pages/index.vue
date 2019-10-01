@@ -94,7 +94,7 @@
             </button>
           </div>
 
-          <div ref="result">
+          <div class="resultContainer" ref="result">
             <div v-if="showResult == true" class="resultDiv">
               <h1> Here's what you said... </h1>
               <ul>
@@ -205,6 +205,35 @@ strong {
   padding: 0.5rem 1rem 0.5rem 1rem;
   margin-left: -1rem;
   margin-bottom: 1rem;
+}
+.buttonContainer{
+  width: 100%;
+  text-align: center;
+}
+.result-button{
+  transition: 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #3CCB98;
+  padding: 1rem;
+  border: 2px solid #3CCB98;
+  border-radius: 1rem;
+  margin-bottom: -1rem;
+}
+.result-button:hover{
+  transition: 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #3CCB98;
+  padding: 1rem;
+  border: 2px solid grey;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 6px black;
+}
+.resultContainer{
+  background-color: #1AFFA3;
+  text-align: center;
+  border-radius: 1rem;
 }
 .quotes-container {
   position: relative;
