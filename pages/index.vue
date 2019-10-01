@@ -144,8 +144,6 @@
       </div>
     </article>
   </div>
-  </article>
-  </div>
 </template>
 
 <script>
