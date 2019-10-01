@@ -299,7 +299,7 @@ export default {
 .resultContainer{
    background-color: #1AFFA3;
    border-radius: 1rem;
-   padding: 1rem;
+   padding: 2rem;
    width: 100%;
    text-align: center;
  }
