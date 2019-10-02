@@ -116,23 +116,27 @@
         </button>
       </div>
 
-      <div v-if="showResult == true" ref="result" class="resultContainer">
-        <div>
+      <div
+        v-if="showResult == true"
+        ref="result"
+        class="resultContainer"
+      >
+        <div class="content">
           <ul>
             <li v-for="statement in resultStatements" :key="statement" class="resultChild">
               {{ statement }}
             </li>
           </ul>
 
-          <p>
+          <!-- <p>
             Share your results through social media, or even printing for a counselor!
-          </p>
+          </p> -->
 
-          <div class="buttonArray">
+          <!-- <div class="buttonArray">
             <button class="printButton" @click="printPage">
               Print
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
       <div role="credits">
@@ -297,11 +301,15 @@ export default {
  }
 
 .resultContainer{
-   background-color: #1AFFA3;
-   border-radius: 1rem;
-   padding: 1rem 4rem 2rem 4rem;
-   width: 100%;
-   text-align: left;
+  margin: auto;
+  background-color: #1AFFA3;
+  border-radius: 1rem;
+  width: 100%;
+  text-align: left;
+  .content{
+      max-width: 32rem;
+      margin: auto;
+  }
  }
 .resultChild{
   list-style-type: circle;
