@@ -414,7 +414,7 @@ header {
     left: 0;
     height: 100%;
     width: 45%;
-    background-color:rgba(#00B5C3, 0.65);
+    background-color:rgba($green, 0.65);
     z-index: 0;
   }
 }
