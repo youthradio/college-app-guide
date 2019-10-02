@@ -111,7 +111,8 @@ ul {
     .check {
       display: block;
       position: absolute;
-      top: calc(50% - 0.5rem);
+      top: 3px;
+      left: 3px;
       border: 1.5px solid $black;
       border-radius: 100%;
       height:1rem;
