@@ -1,28 +1,9 @@
 <template>
   <div class="container">
-    <header ref="headerImage">
-      <img
-        :srcset="`${featureImage}x375.jpg 375w,
-        ${featureImage}x563.jpg 563w,
-        ${featureImage}x1125.jpg 1125w,
-        ${featureImage}x1500.jpg 1500w,
-        ${featureImage}x1875.jpg 1875w,
-        `"
-        :src="`${featureImage}x1875.jpg`"
-        alt="Elva dressed as a fairy"
-
-        class="img-fluid"
-        @load="updateHeaderHeight"
-      >
-      <div class="title">
-        <h2> {{ title }}</h2>
-        <h3> by {{ author }}</h3>
-        <h5> {{ publishDate }}</h5>
-      </div>
-      <div class="image-caption">
-        <span> {{ imageCaption }}</span>
-      </div>
-    </header>
+    <FeatureHeader
+      :header-data="headerData"
+      @onHeaderImgHeight="setHeaderHeight"
+    />
     <MenuHeader :offset="headerImageHeight" />
     <article>
       <p>
@@ -157,11 +138,13 @@ import SOCIALDATA from '../social.config'
 import ROWS_DATA from '~/data/data.json'
 import MenuHeader from '~/components/MenuHeader.vue'
 import QuestionBreak from '~/components/QuestionBreak.vue'
+import FeatureHeader from '~/components/FeatureHeader.vue'
 
 export default {
   components: {
     MenuHeader,
-    QuestionBreak
+    QuestionBreak,
+    FeatureHeader
   },
   mixins: [
     CommonUtils
@@ -180,23 +163,15 @@ export default {
         .filter(r => r !== undefined)
         .map(response => response.response.replace(/\{\{.*\}\}/g, response.option.toLowerCase()))
     },
-    featureImage () {
-      return SOCIALDATA.featureImagePath
-    },
-    title () {
-      return SOCIALDATA.title
-    },
-    author () {
-      return SOCIALDATA.author
-    },
-    imageCaption () {
-      return SOCIALDATA.featureImageCaption
-    },
-    publishDate () {
-      return SOCIALDATA.publishDate
-    },
-    location () {
-      return SOCIALDATA.location
+    headerData () {
+      return {
+        featureImage: SOCIALDATA.featureImagePath,
+        title: SOCIALDATA.title,
+        author: SOCIALDATA.author,
+        imageCaption: SOCIALDATA.featureImageCaption,
+        publishDate: SOCIALDATA.publishDate,
+        location: SOCIALDATA.location
+      }
     }
   },
   watch: {
@@ -213,8 +188,8 @@ export default {
   mounted () {
   },
   methods: {
-    updateHeaderHeight () {
-      this.headerImageHeight = this.$refs.headerImage.getBoundingClientRect().height
+    setHeaderHeight (val) {
+      this.headerImageHeight = val
     },
     processResult () {
       this.showResult = true
@@ -246,12 +221,6 @@ export default {
 }
 .question-4{
   background-color: #3CC2CB;
-}
-.img-fluid{
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
 .buttonContainer{
    width: 100%;
@@ -314,71 +283,6 @@ export default {
 .resultChild{
   list-style-type: circle;
   list-style-position: inside;
-
-}
-// Element unique attributes
-.quotes-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  // height: 90vh;
-  // align-items: center;
-}
-.mute-bar {
-  position: relative;
-  right: 0px;
-  top: 0px;
-  z-index: 10;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-.scroll-text{
-  margin-right: 1rem;
-  font-size: 1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-.flex{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-.fixed {
-  position: fixed;
-  justify-content: flex-end;
-  right: 0px;
-  top: 0px
-}
-.sticky_sentinel--top {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: red;
-  visibility: hidden;
-  height: 40px;
-  bottom: 100%;
-}
-.progress {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 10px;
-  background-color: lighten($color: $dark, $amount: 20%);
-  width: 0%;
-  z-index: -1;
-}
-.center {
-  text-align: center;
-}
-.full-height{
-  display: flex;
-  flex-direction:column;
-  // justify-content: space-between;
-  min-height: calc(100vh - 68px);
-}
-.end{
-  min-height: 100vh;
 }
 ul{
   list-style-type: none;
@@ -401,65 +305,6 @@ ul{
   h4 {
     padding: 0;
     font-weight: 800;
-  }
-}
-header {
-  position: relative;
-  display: flex;
-  height: 80vh;
-  &::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 45%;
-    background-color:rgba($green, 0.65);
-    z-index: 0;
-  }
-}
-.title{
-  position: absolute;
-  bottom: 0px;
-  // max-width:40%;
-  left: 10%;
-  z-index: 1;
-
-  h2 {
-    font-family: "Days Sans", sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.64px;
-    text-transform: uppercase;
-    color: $white;
-    word-break: break-word;
-    padding-bottom: 0px;
-  }
-  h3 {
-    padding-top: 0px;
-    font-weight: 500;
-    font-family: "Solano Gothic MVB", sans-serif;
-    text-transform: none;
-  }
-  h5 {
-    padding-top: 0px;
-    // font-weight: 500;
-    // font-family: "Solano Gothic MVB", sans-serif;
-    text-transform: uppercase;
-  }
-}
-.image-caption{
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  bottom: -1rem;
-  z-index: 1;
-  span {
-    font-weight: 400;
-    font-size: 0.5rem;
-    line-height: 1rem;
-    font-family: 'Roboto Mono', sans-serif;
-    text-align: center;
-    color: $blue-button;
   }
 }
 </style>
